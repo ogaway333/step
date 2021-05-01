@@ -1,0 +1,91 @@
+.p-form{
+    &__caution{
+        padding-bottom: 10px;
+    }
+
+    &__drop-area{
+        position: relative;
+        margin:  0 auto;
+        height: 100px;
+        width: 100px;
+        margin-bottom: 10px;
+    }
+
+    &__hidden-input{
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    &__input-text{
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    &__required{
+        color: #ff3b30;
+    }
+
+    &__limit{
+        color: #797979;
+    }
+
+    &__textarea{
+        min-width: 100%;
+        margin-bottom: 10px;
+        border: 1px #ccc solid;
+        padding: 5px 10px;
+        &:hover{
+            border-color: #555;
+        }
+    
+        &:focus{
+            border-color: #4baae0;
+        }
+    }
+
+    &__list{
+        &:not(:last-child){
+            margin-bottom: 10px;
+        }
+    }
+
+    &__item{
+        display: flex;
+        align-items: center;
+        &:not(:last-child){
+            margin-bottom: 10px;
+        }
+    }
+
+    &__box{
+        margin-right: 5px;
+    }
+
+    &__link{
+        color: #0081c2;
+        &-side{
+            color: #0081c2;
+            &:not(:last-child){
+                margin-right: 10px;
+            }
+            
+        }
+    }
+
+    &__delete{
+        padding: 10px 0;
+        color: #f3374d;
+    }
+
+
+
+    &__button{
+        margin: 20px auto;
+        padding: 5px 30px;
+        background-color: #4baae0;
+    }
+}
+

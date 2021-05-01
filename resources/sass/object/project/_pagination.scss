@@ -1,0 +1,17 @@
+.p-pagination{
+    padding: 20px 0;
+    &__list{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 50%;
+        margin: 0 auto;
+        font-weight: bold;
+        
+    }
+    &__page-item{
+        display: flex;
+        align-items: center;
+    }
+
+}

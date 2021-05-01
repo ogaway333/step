@@ -1,0 +1,21 @@
+.p-icon{
+    &-form{
+        width: 100px;
+        height: 100px;
+        border: solid 3px skyblue;     
+    }
+    &-profile{
+        margin: 10px;
+        width: 70px;
+        height: 70px;       
+    }
+
+    &-detail{
+        margin: 10px;
+        width: 40px;
+        height: 40px;     
+    }
+    &-name{
+        font-weight: bold;
+    }  
+}

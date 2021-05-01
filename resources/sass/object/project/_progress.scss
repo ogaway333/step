@@ -1,0 +1,9 @@
+.p-progress{
+    height: 5px;
+    background-color: rgba(212,224,232,0.5);
+    &__bar{
+        height: 100%;
+        background-color: #5dd9ee;   
+    }
+    
+}

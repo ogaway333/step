@@ -1,0 +1,15 @@
+$breakpoints: (
+  'sm': 'screen and (min-width: 360px)',
+  'md': 'screen and (min-width: 720px)',
+  'lg': 'screen and (min-width: 1024px)',
+) !default;
+
+// ==============================
+// mixin
+// ==============================
+// http://book.scss.jp/code/c4/08.html
+@mixin mq($breakpoint: md) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}

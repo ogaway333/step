@@ -1,0 +1,44 @@
+// ==============================
+// 変数
+// ==============================
+$font-family-default: 'Shippori Mincho';
+$font-family-button: 'Rubik';
+
+$font-color_title: #ffffff;
+$font-color_subtitle: #555555;
+$font-color_default: #555555;
+$font-color_stepbox: #FF6347;
+
+
+// ==============================
+// 初期設定
+// ==============================
+html{
+  line-height: 2;
+  margin: 0 auto;
+  width: 100vw;
+  font-family: $font-family-default, serif;
+  color: $font-color_default;
+}
+
+a{
+  cursor: pointer;
+}
+
+h1, h2{
+  font-weight: bold;
+  font-size: 16px;
+  @include mq() {
+    font-size: 28px;
+  }
+}
+
+body{
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+  font-size: 12px;
+  @include mq() {
+    font-size: 18px;
+  }
+}

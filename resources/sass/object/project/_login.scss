@@ -1,0 +1,21 @@
+.p-login{
+
+    &__link{
+        color: #0081c2;
+    }
+
+    &__remember{
+        display: flex;
+        align-items: center;
+    }
+
+    &__checkbox{
+        margin-right: 5px;
+    }
+
+    &__button{
+        margin: 20px auto;
+        padding: 10px 30px;
+        background-color: #4baae0;
+    }
+}

@@ -1,0 +1,46 @@
+.p-header{
+    &-top{
+        padding: 0 20px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+
+        &__logo{
+            font-size: 12px;
+            margin-right: 10px;
+            @include mq() {
+                font-size: 16px;
+            }
+        }
+
+        &__form{
+            width: 40%;
+        }
+
+        &__search{
+            width: 100%;
+        }
+
+        &__register{
+            margin-left: auto;
+            margin-right: 10px;
+        }
+
+        &__logout{
+            margin-left: auto;
+        }
+    } 
+    &-bottom{
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+        height: 40px;
+        background-color: #FF6347;
+        &__link{
+            color: #fff;
+            &:not(:last-child){
+                margin-right: 10px;
+            }
+        }
+    } 
+}

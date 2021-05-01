@@ -1,0 +1,31 @@
+.p-hero{
+    //アスペクト比4:3の要素の横幅に対して高さが75%
+    max-height: 768px;
+    height: calc(100vw * 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(../images/hero.png);
+    background-size: cover;
+    background-position: 50% 0;
+
+    &__container{
+      color: #fff;
+      text-align: center;
+    }
+
+    &__logo{
+      font-size: 32px;
+      @include mq() {
+        font-size: 80px;
+      }
+    }
+
+    &__catch{
+      font-size: 16px;
+      @include mq() {
+        font-size: 36px;
+      }
+    }
+    
+}

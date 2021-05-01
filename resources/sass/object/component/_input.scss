@@ -1,0 +1,17 @@
+.c-input{
+    &-text{
+        display: block;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        padding: 5px 10px;
+        &:hover{
+            border-color: #555;
+        }
+    
+        &:focus{
+            border-color: #4baae0;
+        }
+    
+    }   
+}

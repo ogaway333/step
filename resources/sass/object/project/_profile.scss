@@ -1,0 +1,16 @@
+.p-profile{
+    &__link{
+        color: #0081c2;
+    }
+
+    &__name{
+        padding: 10px;
+        font-weight: bold;
+        color: #2a2a2a;
+    }
+
+    &__text{
+        padding: 10px;
+        font-weight: bold;
+    }
+}

@@ -1,0 +1,16 @@
+.p-action{
+    text-align: center;
+    height: 200px;
+    padding: 10px 0;
+
+    &__title{
+        padding-bottom: 30px;
+    }
+
+    &__button{
+        margin: 0 auto;
+        padding: 5px 25px;
+        background-color: #FF6347;
+        font-weight: bold;
+    }
+}

@@ -1,0 +1,48 @@
+.p-detail{
+    margin: 0 auto;
+    width: 80%;
+
+    &__username{
+        display: flex;
+        align-items: center;
+    }
+
+    &__content{
+        padding: 10px 0;
+    }
+
+    &__info{
+        padding-bottom: 10px;
+    }
+
+    &__challenge-button{
+        margin: 20px auto;
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+        background-color: #eb6100;
+    }
+
+    &__clear-button{
+        margin: 20px auto;
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+        background-color: #d20010;
+    }
+
+    &__cancel-button{
+        margin: 20px auto;
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+        background-color: #ccc;
+    }
+
+}

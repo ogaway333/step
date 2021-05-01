@@ -1,0 +1,87 @@
+.p-popup {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 4;
+    opacity: 0;
+    visibility: hidden;
+    transition: .6s;
+    text-align: center;
+    &.is-show{
+        opacity: 1;
+        visibility: visible;    
+    }
+    &__inner {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        min-width: 90vw;
+        min-height: 50vh;
+        padding: 20px;
+        background-color: #fff;
+        z-index: 4;
+    }
+    &__close {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        cursor: pointer;
+    }
+    &__close i {
+        font-size: 20px;
+        color: #333;
+    }
+    &__twitter-button {
+        display: inline-block;
+        padding: 5px 35px;
+        margin: 10px 0;
+        background-color: #55acee;
+        color: #fff;
+        cursor: pointer;
+        position: relative;
+        text-decoration: none;
+        &::after {
+            position: absolute;
+            content: '\f099';
+            font-family: 'Font Awesome 5 Brands';
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+        }
+    }
+
+    &__start-button{
+        font-size: 12px;
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        margin: 20px auto;
+        -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+        background-color: #eb6100;
+    }
+
+    &__black-background {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,.8);
+        z-index: 1;
+        cursor: pointer;
+    }
+
+  }
+
+
+
+
+

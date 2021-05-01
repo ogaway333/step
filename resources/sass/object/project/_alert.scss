@@ -1,0 +1,39 @@
+.p-alert{
+   &-state{
+       border-radius: 5px;
+       margin: 10px 0;
+       padding: 10px;
+       font-weight: bold;
+       text-align: center;
+       color: #155724;
+       background-color: #d4edda;
+   }
+
+   &-flash--success{
+       position: fixed;
+       top: 0;
+       z-index: 3;
+       width: 100vw;
+       text-align: center;
+       background-color: #0095fb;
+       opacity: .6;
+       font-weight: bold;
+       color: #fff;
+   }
+
+   &-flash--err{
+    position: fixed;
+    top: 0;
+    z-index: 3;
+    width: 100vw;
+    text-align: center;
+    background: #f3374d;
+    opacity: .6;
+    font-weight: bold;
+    color: #fff;
+   }
+
+   &-err{
+    color: #ff3b30;  
+   } 
+}
