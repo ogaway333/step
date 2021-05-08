@@ -6,8 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
 
+//ユーザーのプロフィール画面の制御
 class ProfileController extends Controller
 {
+    //ユーザーのプロフィール画面の表示
     public function index($id)
     {
         // GETパラメータの確認 数字であるか

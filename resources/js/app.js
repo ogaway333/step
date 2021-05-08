@@ -26,13 +26,38 @@ Vue.component('list-component', require('./components/ListComponent.vue').defaul
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
  document.addEventListener('DOMContentLoaded', function() {
-    //
+    //STEP一覧ページのリストのインスタンス生成
     if (document.getElementById("app")) {
         const app = new Vue({
             el: '#app',
             
         });
     }
+
+    //文字数カウント
+    if(document.getElementById('js-textArea')){
+        const textArea = document.getElementById("js-textArea");
+        const length = textArea.value.length;
+        if(document.getElementById('js-textCount')){
+            const textCount = document.getElementById('js-textCount');
+            textCount.innerHTML = length;
+            textArea.onkeyup = function(){
+                if(document.getElementById('js-textMax')){
+                    const textMax = document.getElementById('js-textMax');
+                    const Max = Number(textMax.textContent);
+                    const length = textArea.value.length;
+                    textCount.innerHTML = length;
+                    const lest = length - Max;
+                    if(lest > 0){
+                        textCount.style.color = "#ff3b30";
+                    }else{
+                        textCount.style.color = "#555555";
+                    }
+                }
+            }
+        }
+    }
+
     
     //ファイル選択した画像を表示する
     if(document.getElementById('file-icon')){

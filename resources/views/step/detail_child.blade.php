@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', '子STEP詳細ページ')
 @section('content')
 
 <section class="p-detail">

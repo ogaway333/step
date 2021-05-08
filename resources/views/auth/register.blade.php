@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', 'ユーザー登録ページ')
 @section('content')
 <h2 class="c-title">ユーザー登録</h2>
 <form class="p-form c-container-form" method="POST" action="{{ route('register') }}">

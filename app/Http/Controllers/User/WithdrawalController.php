@@ -8,13 +8,16 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Auth;
 
+//ユーザーの退会画面の制御
 class WithdrawalController extends Controller
 {
+    //退会画面の表示
     public function index() {
         $user = Auth::user();
 
         return view('user.withdrawal');
     }
+
     //ユーザー情報の削除
     public function delete(Request $request) {
         $request->validate([
@@ -26,6 +29,7 @@ class WithdrawalController extends Controller
             $user_challenges = $user ? $user->user_challenges()->where('challenger_id', $user->id)->get() : null;
 
             $steps = $user ? $user->steps()->where('user_id', $user->id)->get() : null;
+            
             DB::transaction(function () use ($user, $steps, $user_challenges) {
                 foreach($user_challenges as $user_challenge){
                     $step_child_clears = $user_challenge ? $user_challenge->step_child_clears()->where('challenge_id', $user_challenge->id)->get() : null;

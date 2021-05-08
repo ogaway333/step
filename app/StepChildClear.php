@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+//子ステップクリアモデル
 class StepChildClear extends Model
 {
     use SoftDeletes;

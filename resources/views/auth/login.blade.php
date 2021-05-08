@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', 'ログインページ')
 @section('content')
 <h2 class="c-title">ログイン</h2>
 <form class="p-form c-container-form" method="POST" action="{{ route('login') }}">

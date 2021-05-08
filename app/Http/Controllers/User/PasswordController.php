@@ -12,11 +12,12 @@ use Auth;
 //パスワード変更処理の制御
 class PasswordController extends Controller
 {
+    //パスワード変更画面の表示
     public function index() {
         return view('user.password');
     }
 
-    //ユーザー情報の更新
+    //パスワードの更新
     public function update(Request $request) {
         $request->validate([
             'password_old' => ['required', 'regex:/^[a-zA-Z\d]+$/', 'string', 'min:8', 'max:255'],

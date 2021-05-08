@@ -9,8 +9,11 @@ use App\Category;
 use App\Step;
 use Auth;
 
+
+//step編集画面の制御
 class EditController extends Controller
 {
+    //step編集画面の表示
     public function index($id) {
         $step = Step::find($id);
         // GETパラメータの確認

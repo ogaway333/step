@@ -8,8 +8,11 @@ use App\Step;
 use App\Category;
 use Auth;
 
+
+//step一覧画面の制御
 class ListController extends Controller
 {
+    //step一覧画面の表示
     public function index(Request $request) {
         $order = $request->order;
         $categories = Category::all();
@@ -34,16 +37,16 @@ class ListController extends Controller
 
         switch ($order) {
             case ($order === 'new'):
-                $query->orderBy('id', 'desc');
+                $query->orderBy('created_at', 'desc');
                 break;
             case ($order === 'challenge_num'):
                 $query->orderBy('challenger_count', 'desc');
                 break;
             case ($order === 'old'):
-                $query->orderBy('id', 'asc');
+                $query->orderBy('created_at', 'asc');
                 break;
             default:
-                $query->orderBy('id', 'desc');
+                $query->orderBy('created_at', 'desc');
                 break;
         }
         $result_count = $query->count();

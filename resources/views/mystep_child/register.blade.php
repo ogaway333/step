@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', '子STEP登録ページ')
 @section('content')
 <h2 class="c-title">子STEPの作成</h2>
 <form class="p-form c-container-form" method="POST" action="{{route('mystep_child.register', ['step_id' => $step->id])}}">
@@ -19,7 +19,8 @@
             <strong>{{ $message }}</strong>
         </div>
     @enderror
-    <textarea name="content" id="content" class="p-form__textarea @error('content') is-invalid @enderror" required autocomplete="name" cols="30" rows="10">{{old('content')}}</textarea>
+    <p class="p-form__text-count"><span id="js-textCount">0</span>／<span id="js-textMax">5000</span></p>
+    <textarea name="content" id="js-textArea" class="p-form__textarea @error('content') is-invalid @enderror" required autocomplete="name" cols="30" rows="10">{{old('content')}}</textarea>
 
     <input class="p-form__button c-button" type="submit" value="登録する">
 </form>

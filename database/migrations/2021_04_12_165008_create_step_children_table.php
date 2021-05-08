@@ -4,6 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+//子stepのテーブルの作成
 class CreateStepChildrenTable extends Migration
 {
     /**
@@ -16,7 +17,7 @@ class CreateStepChildrenTable extends Migration
         Schema::create('step_children', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
-            $table->string('content');
+            $table->text('content');
             $table->unsignedBigInteger('step_id');
             $table->foreign('step_id')->references('id')->on('steps');
             $table->timestamps();

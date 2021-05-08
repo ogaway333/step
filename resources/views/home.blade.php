@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', 'マイページ')
 @section('content')
 <section class="p-profile">
     @if ($auth->icon)
@@ -19,9 +19,10 @@
         <p class="p-step__info">{{$step->created_at}}</p>
         <p class="p-step__info">カテゴリー：{{$step->category->name}}</p>
         <p class="p-step__info">目安達成時間：{{$step->clear_time}}</p>
-        <p class="p-step__info">総合チャレンジ回数：{{$step->challenger_count}}人</p>
+        <p class="p-step__info">総合チャレンジ回数：{{$step->challenger_count}}回</p>
     </a>
     @endforeach
+    {{ $steps->links('vendor.pagination.default') }}
 </section>
 
 <h2 class="c-title">チャレンジしているSTEP</h2>

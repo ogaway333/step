@@ -8,10 +8,12 @@ use App\Category;
 use App\Step;
 use Auth;
 
+
+//step登録画面の制御
 class RegisterController extends Controller
 {
+    //step登録画面の表示
     public function index() {
-        // categoryテーブルのすべてのデータを取得し、$categoryに代入
         $categories = Category::all();
         return view('mystep.register', compact('categories'));
     }

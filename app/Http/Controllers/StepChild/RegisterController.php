@@ -8,8 +8,10 @@ use App\Step;
 use App\StepChild;
 use Auth;
 
+//step登録画面の制御
 class RegisterController extends Controller
 {
+    //step登録画面の表示
     public function index($id) {
         $step = Step::find($id);
         // GETパラメータの確認

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', 'プロフィールページ')
 @section('content')
 <section class="p-profile">
     @if ($user->icon)

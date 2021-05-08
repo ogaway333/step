@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', 'ユーザ情報編集ページ')
 @section('content')
 <h2 class="c-title">ユーザー編集</h2>
 <form class="p-form c-container-form" method="POST" action="{{ route('user.edit') }}" enctype="multipart/form-data">
@@ -11,7 +11,7 @@
         </div>
     @enderror
     <div class="p-form__drop-area">
-        <input id="file-icon" type="file" class="p-form__hidden-input @error('icon') is-invalid @enderror" name="icon">
+        <input id="file-icon" type="file" class="p-form__hidden-input" name="icon">
         @if ($auth->icon)
         <img id="js-preview" class="p-icon-profile c-icon" src="/uploads/{{ $auth->icon }}" alt=""> 
         @else 
@@ -33,7 +33,8 @@
             <strong>{{ $message }}</strong>
         </div>
     @enderror
-    <textarea name="profile" id="profile" class="p-form__textarea @error('profile') is-invalid @enderror" autocomplete="profile" cols="30" rows="10">{{$auth->profile}}</textarea>
+    <p class="p-form__text-count"><span id="js-textCount">0</span>／<span id="js-textMax">1000</span></p>
+    <textarea name="profile" id="js-textArea" class="p-form__textarea @error('profile') is-invalid @enderror" autocomplete="profile" cols="30" rows="10">{{$auth->profile}}</textarea>
 
     <label for="email">メールアドレス<span class="p-form__required">[必須]</span></label>
     @error('email')

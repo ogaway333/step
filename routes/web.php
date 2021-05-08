@@ -24,14 +24,18 @@ Route::get('/step/list', 'Step\ListController@index')->name('step.list');
 //STEP詳細
 Route::get('/step/{step_id}', 'Step\DetailController@index')->name('step.detail');
 
+//子STEP詳細
+Route::get('/step/{step_id}/child/{step_child_id}', 'Step\DetailChildController@index')->name('step.detail_child');
+
+//ユーザー情報
+Route::get('/user/profile/{user_id}', 'User\ProfileController@index')->name('user.profile');
+
 Route::middleware('verified')->group(function() {
     //メール認証が完了した場合のみ、実行できるRoute
 
     //home画面
     Route::get('/home', 'HomeController@index')->name('home');
 
-    //ユーザー情報
-    Route::get('/user/profile/{user_id}', 'User\ProfileController@index')->name('user.profile');
     //ユーザー情報編集画面
     Route::get('/user/edit', 'User\EditController@index')->name('user.edit');
     //ユーザー情報の更新
@@ -81,9 +85,6 @@ Route::middleware('verified')->group(function() {
 
     //STEPのチャレンジを削除
     Route::post('/step/{step_id}/delete', 'Step\DetailController@delete')->name('step.give_up');
-
-    //子STEP詳細
-    Route::get('/step/{step_id}/child/{step_child_id}', 'Step\DetailChildController@index')->name('step.detail_child');
 
     //子STEPクリア
     Route::post('/step/{step_id}/child/{step_child_id}', 'Step\DetailChildController@clear')->name('step.clear');

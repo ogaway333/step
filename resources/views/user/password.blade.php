@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', 'パスワード変更ページ')
 @section('content')
 <h2 class="c-title">パスワードの変更</h2>
 <form class="p-form c-container-form" method="POST" action="{{ route('user.password.update')}}" enctype="multipart/form-data">

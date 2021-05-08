@@ -4,6 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+//失敗したジョブのテーブルの作成
 class CreateFailedJobsTable extends Migration
 {
     /**

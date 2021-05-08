@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', 'STEP管理ページ')
 @section('content')
 <h2 class="c-title">STEPの管理ページ</h2>
 <section class="p-manage">

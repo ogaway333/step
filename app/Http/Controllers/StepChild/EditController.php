@@ -9,8 +9,11 @@ use App\Step;
 use App\StepChild;
 use Auth;
 
+//子stepの詳細画面の制御
 class EditController extends Controller
 {
+
+    //子stepの詳細画面の表示
     public function index($step_id, $step_child_id) {
         // GETパラメータの確認 数字であるか
         if(!ctype_digit($step_id) || !ctype_digit($step_child_id)){
@@ -83,6 +86,6 @@ class EditController extends Controller
 
         
         return redirect('mystep/manage/'.$step->id, 301)->with('flash_message', '子STEPが削除されました');
-            
+
     }
 }

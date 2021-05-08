@@ -11,14 +11,19 @@ use App\UserChallenge;
 use App\StepChildClear;
 use Auth;
 
+//step詳細画面の制御
 class DetailController extends Controller
 {
+    //step詳細画面の表示
     public function index($id) {
         // GETパラメータの確認 数字であるか
         if(!ctype_digit($id)){
             return back()->withInput()->with('flash_message_err', 'パラメータが不正です');
         }
+
+        //ユーザーが閲覧しているstepにチャレンジしているか
         $uc = UserChallenge::where('step_id', $id)->where('challenger_id', Auth::id())->first();
+
         $step = Step::where('id', $id)->where('show_flg', true)->first();
         // GETパラメータの確認 stepとstep_childがnullか
         if(empty($step)){
@@ -32,6 +37,7 @@ class DetailController extends Controller
     }
 
 
+    //stepのチャレンジ開始
     public function start($id) {
         $uc = new UserChallenge();
         $uc->challenger_id = Auth::id();
@@ -49,7 +55,7 @@ class DetailController extends Controller
             $step->increment('challenger_count', 1);
         });
 
-        return redirect('/home', 301)->with('flash_message', 'STEPのチャレンジが始まりました！');
+        return redirect('/step/'.$step->id.'/child/'.$step->step_children()->first()->id, 301)->with('flash_message', 'STEPのチャレンジが始まりました！');
 
     }
 
@@ -69,7 +75,7 @@ class DetailController extends Controller
             $step_clears->delete();
         });
 
-        return redirect('/home', 301)->with('flash_message', 'STEPのチャレンジを諦めました');
+        return redirect('/step/'.$id, 301)->with('flash_message', 'STEPのチャレンジを諦めました');
 
     }
 }

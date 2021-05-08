@@ -10,8 +10,10 @@ use App\UserChallenge;
 use App\StepChildClear;
 use Auth;
 
+//子ステップ詳細画面の制御
 class DetailChildController extends Controller
 {
+    //子ステップ詳細画面の表示
     public function index($step_id, $step_child_id) {
         // GETパラメータの確認 数字であるか
         if(!ctype_digit($step_id) || !ctype_digit($step_child_id)){
@@ -28,6 +30,7 @@ class DetailChildController extends Controller
         return view('step.detail_child', compact('step_child', 'uc', 'step_clear'));
     }
 
+    //子ステップのクリア処理
     public function clear($step_id, $step_child_id) {
         // GETパラメータの確認 数字であるか
         if(!ctype_digit($step_id) || !ctype_digit($step_child_id)){
@@ -45,6 +48,7 @@ class DetailChildController extends Controller
 
     }
 
+    //子ステップの削除
     public function delete($step_id, $step_child_id) {
         // GETパラメータの確認 数字であるか
         if(!ctype_digit($step_id) || !ctype_digit($step_child_id)){

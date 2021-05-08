@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', '本登録ページ')
 @section('content')
 <h2 class="c-title">本登録</h2>
 <div class="p-verify">

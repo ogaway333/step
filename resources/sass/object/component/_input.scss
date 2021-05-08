@@ -12,6 +12,10 @@
         &:focus{
             border-color: #4baae0;
         }
+
+        &.is-invalid{
+            background-color: #ffd9e1;
+        }
     
     }   
 }

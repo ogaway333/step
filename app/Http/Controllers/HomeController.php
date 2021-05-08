@@ -26,15 +26,18 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
+    //ユーザーのホーム画面の表示
     public function index()
     {
         $user = new User;
         $auth = Auth::user();
 
-        $steps = Step::where('user_id', $auth->id)->get();
+        $steps = Step::where('user_id', $auth->id)->paginate(5);
+
         $user_challenges = UserChallenge::where('challenger_id', Auth::id())->get();
 
 
-        return view('home', compact('auth','steps', 'user_challenges'));
+        return view('home', compact('auth', 'steps', 'user_challenges'));
     }
 }

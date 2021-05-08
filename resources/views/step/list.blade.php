@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', 'STEP一覧ページ')
 @section('content')
 <h2 class="c-title">STEP一覧</h2>
 <form class="p-form c-container-form" method="GET" action="{{ route('step.list') }}">
@@ -37,7 +37,7 @@
 </form>
 <div id="app">
     <list-component v-bind:steps="{{json_encode($steps)}}"></list-component>
-    {{ $steps->links('vendor.pagination.default') }}
+    {{ $steps->appends(request()->input())->links('vendor.pagination.default') }}
 </div>
 
 

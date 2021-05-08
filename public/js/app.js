@@ -2482,7 +2482,7 @@ var render = function() {
           _vm._v(" "),
           _c("p", { staticClass: "p-step__info" }, [
             _vm._v(
-              "総合チャレンジ回数：" + _vm._s(step.challenger_count) + "人"
+              "総合チャレンジ回数：" + _vm._s(step.challenger_count) + "回"
             )
           ])
         ]
@@ -14663,11 +14663,38 @@ Vue.component('list-component', __webpack_require__(/*! ./components/ListCompone
  */
 
 document.addEventListener('DOMContentLoaded', function () {
-  //
+  //STEP一覧ページのリストのインスタンス生成
   if (document.getElementById("app")) {
     var app = new Vue({
       el: '#app'
     });
+  } //文字数カウント
+
+
+  if (document.getElementById('js-textArea')) {
+    var textArea = document.getElementById("js-textArea");
+    var length = textArea.value.length;
+
+    if (document.getElementById('js-textCount')) {
+      var textCount = document.getElementById('js-textCount');
+      textCount.innerHTML = length;
+
+      textArea.onkeyup = function () {
+        if (document.getElementById('js-textMax')) {
+          var textMax = document.getElementById('js-textMax');
+          var Max = Number(textMax.textContent);
+          var _length = textArea.value.length;
+          textCount.innerHTML = _length;
+          var lest = _length - Max;
+
+          if (lest > 0) {
+            textCount.style.color = "#ff3b30";
+          } else {
+            textCount.style.color = "#555555";
+          }
+        }
+      };
+    }
   } //ファイル選択した画像を表示する
 
 

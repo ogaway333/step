@@ -8,8 +8,11 @@ use App\Step;
 use App\StepChild;
 use Auth;
 
+
+//step管理画面の制御
 class ManageController extends Controller
 {
+    //step管理画面の表示
     public function index($id) {
         $step = Step::find($id);
         // GETパラメータの確認
@@ -22,6 +25,7 @@ class ManageController extends Controller
         return view('mystep.manage', compact('step', 'step_children'));
     }
 
+    //stepの公開
     public function show($id) {
         $step = Step::find($id);
         // GETパラメータの確認

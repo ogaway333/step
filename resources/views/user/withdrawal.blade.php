@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', '退会ページ')
 @section('content')
 <h2 class="c-title">STEPを退会する</h2>
 <form class="p-form c-container-form" method="POST" action="{{ route('user.withdrawal') }}" enctype="multipart/form-data">

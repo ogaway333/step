@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'TOPページ')
 @section('content')
 <section class="p-hero">
     <div class="p-hero__container">

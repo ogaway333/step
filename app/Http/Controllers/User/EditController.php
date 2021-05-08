@@ -11,6 +11,7 @@ use Auth;
 //ユーザー情報の編集
 class EditController extends Controller
 {
+    //ユーザー情報の編集画面の表示
     public function index() {
         $auth = Auth::user();
         return view('user.edit', ['auth' => $auth]);
@@ -29,10 +30,10 @@ class EditController extends Controller
         $user_id = Auth::id();
         if($file = $request->icon){
             //保存するファイルに名前をつける    
-               $fileName = time().'.'.$file->getClientOriginalExtension();
+            $fileName = time().'.'.$file->getClientOriginalExtension();
             //Laravel直下のpublicディレクトリに新フォルダをつくり保存する
-               $target_path = public_path('/uploads/');
-               $file->move($target_path,$fileName);
+            $target_path = public_path('/uploads/');
+            $file->move($target_path,$fileName);
         }else{
             $user->where('id', $user_id)->update([
                 'name' => $request->name,
