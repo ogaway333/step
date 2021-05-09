@@ -34,15 +34,20 @@
 
     &__textarea{
         min-width: 100%;
+        max-width: 100%;
         margin-bottom: 10px;
         border: 1px #ccc solid;
         padding: 5px 10px;
+
         &:hover{
             border-color: #555;
         }
     
         &:focus{
             border-color: #4baae0;
+        }
+        &.is-invalid{
+            background-color: #ffd9e1;
         }
     }
 

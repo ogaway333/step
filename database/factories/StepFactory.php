@@ -17,7 +17,7 @@ $factory->define(Step::class, function (Faker $faker) {
         'challenger_count' => $faker->numberBetween($min = 0, $max = 100),
         'user_id' => $faker->numberBetween($min = 1, $max = 10),
         'show_flg' => true,
-        'created_at'=>$faker->dateTimeBetween('1day', '1year'),
-        'updated_at'=> $faker->dateTimeBetween('1day', '1year'),
+        'created_at' => $faker->datetime($max = 'now', $timezone = date_default_timezone_get()),
+        'updated_at' => $faker->datetime($max = 'now', $timezone = date_default_timezone_get()),
     ];
 });

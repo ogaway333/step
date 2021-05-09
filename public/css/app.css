@@ -509,7 +509,7 @@ body {
 }
 
 .l-main {
-  flex: 1;
+  min-height: 100vh;
   margin-top: 80px;
 }
 
@@ -529,6 +529,7 @@ body {
   border: 1px solid #ccc;
   border-radius: 3px;
   padding: 5px 10px;
+  line-height: normal;
 }
 .c-input-text:hover {
   border-color: #555;
@@ -538,6 +539,15 @@ body {
 }
 .c-input-text.is-invalid {
   background-color: #ffd9e1;
+}
+.c-input-text::-moz-placeholder {
+  line-height: normal;
+}
+.c-input-text:-ms-input-placeholder {
+  line-height: normal;
+}
+.c-input-text::placeholder {
+  line-height: normal;
 }
 
 .c-button {
@@ -799,6 +809,7 @@ body {
 }
 .p-form__textarea {
   min-width: 100%;
+  max-width: 100%;
   margin-bottom: 10px;
   border: 1px #ccc solid;
   padding: 5px 10px;
@@ -808,6 +819,9 @@ body {
 }
 .p-form__textarea:focus {
   border-color: #4baae0;
+}
+.p-form__textarea.is-invalid {
+  background-color: #ffd9e1;
 }
 .p-form__list:not(:last-child) {
   margin-bottom: 10px;
@@ -920,6 +934,13 @@ body {
   font-weight: bold;
 }
 
+.p-manage__list {
+  width: 100%;
+  padding: 0 10px;
+}
+.p-manage__url {
+  color: #0066c0;
+}
 .p-manage-step {
   background: #FF6347;
   padding: 5px 10px;
@@ -1036,6 +1057,27 @@ body {
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
   background-color: #ccc;
 }
+.p-detail__twitter-button {
+  display: inline-block;
+  font-weight: bold;
+  font-size: 10px;
+  width: 74px;
+  padding: 1px 0;
+  padding-left: 20px;
+  background-color: #1b95e0;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+  position: relative;
+}
+.p-detail__twitter-button::after {
+  position: absolute;
+  content: "\F099";
+  font-family: "Font Awesome 5 Brands";
+  top: 50%;
+  left: 6px;
+  transform: translateY(-50%);
+}
 
 .p-pagination {
   padding: 20px 0;
@@ -1043,7 +1085,7 @@ body {
 .p-pagination__list {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
   width: 50%;
   margin: 0 auto;
   font-weight: bold;

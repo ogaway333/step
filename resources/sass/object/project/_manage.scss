@@ -1,4 +1,13 @@
 .p-manage{
+    &__list{
+        width: 100%;
+        padding: 0 10px;
+    }
+    
+    &__url{
+        color: #0066c0;
+    }
+
     &-step{
         background: #FF6347;
         padding: 5px 10px;

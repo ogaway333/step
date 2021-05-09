@@ -42,4 +42,26 @@
         background-color: #ccc;
     }
 
+    &__twitter-button {
+        display: inline-block;
+        font-weight: bold;
+        font-size: 10px;
+        width: 74px;
+        padding: 1px 0;
+        padding-left: 20px;
+        background-color: #1b95e0;
+        border-radius: 3px;
+        color: #fff;
+        cursor: pointer;
+        position: relative;
+        &::after {
+            position: absolute;
+            content: '\f099';
+            font-family: 'Font Awesome 5 Brands';
+            top: 50%;
+            left: 6px;
+            transform: translateY(-50%);
+        }
+    }
+
 }
