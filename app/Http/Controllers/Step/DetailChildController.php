@@ -55,7 +55,7 @@ class DetailChildController extends Controller
         $step_clear->save();
         
 
-        return redirect('/home', 301)->with('flash_message', '子STEPをクリアしました！');
+        return redirect('/step/'.$step_id, 301)->with('flash_message', '子STEPをクリアしました！');
 
     }
 
@@ -73,7 +73,7 @@ class DetailChildController extends Controller
             $step_clear->delete();
         });
 
-        return redirect('/home', 301)->with('flash_message', 'STEPのクリアをキャンセルしました');
+        return redirect('/step/'.$step_id, 301)->with('flash_message', 'STEPのクリアをキャンセルしました');
 
     }
 }

@@ -22,7 +22,11 @@
     @if (isset( $categories ))
     <ul class="p-form__list">
         @foreach ($categories as $key => $category)
-        <li class="p-form__item"><input class="p-form__box" type="radio" name="category_id" value="{{$category->id}}"><span>{{$category->name}}</span></li>
+        <li class="p-form__item"><input class="p-form__box" type="radio" name="category_id" value="{{$category->id}}" 
+        @if (old('category_id') == $category->id)
+        checked="checked"
+        @endif
+        ><span>{{$category->name}}</span></li>
         @endforeach
     </ul>
 

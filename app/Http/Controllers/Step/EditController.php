@@ -19,7 +19,7 @@ class EditController extends Controller
         // GETパラメータの確認
         // 数字ではない、または編集者のidとstepのユーザーidが一致しなかった場合のリダイレクト処理
         if(!ctype_digit($id) || Auth::id() != optional($step)->user_id){
-            return back()->withInput()->with('flash_message', 'パラメータが不正です');
+            return back()->withInput()->with('flash_message_err', 'パラメータが不正です');
         }
         // categoryテーブルのすべてのデータを取得し、$categoryに代入
         $categories = Category::all();

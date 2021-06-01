@@ -4,7 +4,7 @@
 
 <section class="p-detail">
     <h2 class="c-title">{{$step->title}}</h2>
-    <a href="https://twitter.com/share?url={{ route('step.detail', ['step_id' => $step->id]) }}/&text={{$step->title}}の挑戦が始まりました！" rel="nofollow" target="_blank" class="twitter-share-button" data-show-count="false">Tweet</a>
+    <a class="p-detail__twitter-button" href="https://twitter.com/share?url={{ route('step.detail', ['step_id' => $step->id]) }}/&text={{$step->title}}の挑戦が始まりました！" rel="nofollow" target="_blank">ツイート</a>
     @empty($uc)
     <form method="POST" action="{{route('step.start', ['step_id' => $step->id])}}">
         @csrf

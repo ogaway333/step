@@ -3,7 +3,9 @@
 @section('content')
 <h2 class="c-title">STEPの管理ページ</h2>
 <section class="p-manage">
-
+    @if ($step->show_flg)
+    <p class="p-manage__list">STEPのURL：<a class="p-manage__url" href="{{route('step.detail', ['step_id' => $step->id])}}">{{route('step.detail', ['step_id' => $step->id])}}</a></p>
+    @endif
     <div class="p-manage-step">
         <span class="p-manage-step__item-name">タイトル</span>
         <a class="p-manage-step__link" href="{{route('mystep.edit', ['step_id' => $step->id])}}">編集する</a>

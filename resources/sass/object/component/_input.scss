@@ -5,6 +5,7 @@
         border: 1px solid #ccc;
         border-radius: 3px;
         padding: 5px 10px;
+	line-height: normal;
         &:hover{
             border-color: #555;
         }
@@ -15,6 +16,9 @@
 
         &.is-invalid{
             background-color: #ffd9e1;
+        }
+        &::placeholder{
+	    line-height: normal;
         }
     
     }   

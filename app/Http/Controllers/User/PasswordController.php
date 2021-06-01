@@ -30,9 +30,9 @@ class PasswordController extends Controller
             $user->where('id', $auth->id)->update([
                 'password' => Hash::make($request->password)
             ]);          
-            return redirect('/home', 301);  
+            return redirect('/home', 301)->with('flash_message', 'パスワードを変更しました');  
         } else {
-            return redirect('/user/withdrawal', 301)->with('warning', 'パスワードが違います');  
+            return redirect('/user/password', 301)->with('warning', 'パスワードが違います');  
         }                
     }
 }
