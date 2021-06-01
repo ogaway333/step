@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /*! destyle.css v2.0.2 | MIT License | https://github.com/nicolas-cusan/destyle.css */
 /* Reset box-model and set borders */
 /* ============================================ */
@@ -233,13 +232,13 @@ textarea {
 /**
  * Reset radio and checkbox appearance to preserve their look in iOS.
  */
-[type=checkbox] {
+[type="checkbox"] {
   -webkit-appearance: checkbox;
   -moz-appearance: checkbox;
        appearance: checkbox;
 }
 
-[type=radio] {
+[type="radio"] {
   -webkit-appearance: radio;
   -moz-appearance: radio;
        appearance: radio;
@@ -269,9 +268,9 @@ select {
  * Correct the inability to style clickable types in iOS and Safari.
  */
 button,
-[type=button],
-[type=reset],
-[type=submit] {
+[type="button"],
+[type="reset"],
+[type="submit"] {
   cursor: pointer;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -279,9 +278,9 @@ button,
 }
 
 button[disabled],
-[type=button][disabled],
-[type=reset][disabled],
-[type=submit][disabled] {
+[type="button"][disabled],
+[type="reset"][disabled],
+[type="submit"][disabled] {
   cursor: default;
 }
 
@@ -289,9 +288,9 @@ button[disabled],
  * Remove the inner border and padding in Firefox.
  */
 button::-moz-focus-inner,
-[type=button]::-moz-focus-inner,
-[type=reset]::-moz-focus-inner,
-[type=submit]::-moz-focus-inner {
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
@@ -300,9 +299,9 @@ button::-moz-focus-inner,
  * Restore the focus styles unset by the previous rule.
  */
 button:-moz-focusring,
-[type=button]:-moz-focusring,
-[type=reset]:-moz-focusring,
-[type=submit]:-moz-focusring {
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 
@@ -365,15 +364,15 @@ textarea {
 /**
  * Correct the cursor style of increment and decrement buttons in Chrome.
  */
-[type=number]::-webkit-inner-spin-button,
-[type=number]::-webkit-outer-spin-button {
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
   height: auto;
 }
 
 /**
  * 1. Correct the outline style in Safari.
  */
-[type=search] {
+[type="search"] {
   outline-offset: -2px;
   /* 1 */
 }
@@ -381,7 +380,7 @@ textarea {
 /**
  * Remove the inner padding in Chrome and Safari on macOS.
  */
-[type=search]::-webkit-search-decoration {
+[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
@@ -480,6 +479,7 @@ h1, h2 {
   font-weight: bold;
   font-size: 16px;
 }
+
 @media screen and (min-width: 720px) {
   h1, h2 {
     font-size: 28px;
@@ -492,6 +492,7 @@ body {
   min-height: 100vh;
   font-size: 12px;
 }
+
 @media screen and (min-width: 720px) {
   body {
     font-size: 18px;
@@ -530,12 +531,15 @@ body {
   border-radius: 3px;
   padding: 5px 10px;
 }
+
 .c-input-text:hover {
   border-color: #555;
 }
+
 .c-input-text:focus {
   border-color: #4baae0;
 }
+
 .c-input-text.is-invalid {
   background-color: #ffd9e1;
 }
@@ -547,6 +551,7 @@ body {
   border-radius: 30px;
   color: #fff;
 }
+
 .c-button:hover {
   opacity: 0.8;
 }
@@ -580,28 +585,35 @@ body {
   display: flex;
   align-items: center;
 }
+
 .p-header-top__logo {
   font-size: 12px;
   margin-right: 10px;
 }
+
 @media screen and (min-width: 720px) {
   .p-header-top__logo {
     font-size: 16px;
   }
 }
+
 .p-header-top__form {
   width: 40%;
 }
+
 .p-header-top__search {
   width: 100%;
 }
+
 .p-header-top__register {
   margin-left: auto;
   margin-right: 10px;
 }
+
 .p-header-top__logout {
   margin-left: auto;
 }
+
 .p-header-bottom {
   display: flex;
   align-items: center;
@@ -609,9 +621,11 @@ body {
   height: 40px;
   background-color: #FF6347;
 }
+
 .p-header-bottom__link {
   color: #fff;
 }
+
 .p-header-bottom__link:not(:last-child) {
   margin-right: 10px;
 }
@@ -622,14 +636,17 @@ body {
   padding: 10px;
   background-color: #FF6347;
 }
+
 .p-menu__angle {
   display: block;
   color: #fff;
   margin-left: auto;
 }
+
 .p-menu__title {
   color: #fff;
 }
+
 .p-menu__content {
   visibility: hidden;
   padding: 10px;
@@ -638,37 +655,46 @@ body {
   border-right: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
 }
+
 .p-menu__item {
   display: flex;
   align-items: center;
 }
+
 .p-menu__item:not(:last-child) {
   margin-bottom: 10px;
 }
+
 .p-menu__box {
   margin-right: 5px;
 }
+
 .p-menu__acd-check {
   display: none;
 }
+
 .p-menu__acd-check:checked + .p-menu__drop .p-menu__angle {
   transform: rotate(180deg);
 }
+
 .p-menu__acd-check:checked + .p-menu__drop + .p-menu__content {
   height: auto;
   opacity: 1;
   visibility: visible;
 }
+
 .p-menu__select {
   position: relative;
   margin: 10px 0;
 }
+
 .p-menu__select-box {
   display: block;
   padding: 5px 10px;
   width: 100%;
   border: 1px solid #666;
 }
+
 .p-menu__caret {
   position: absolute;
   display: block;
@@ -687,21 +713,26 @@ body {
   background-size: cover;
   background-position: 50% 0;
 }
+
 .p-hero__container {
   color: #fff;
   text-align: center;
 }
+
 .p-hero__logo {
   font-size: 32px;
 }
+
 @media screen and (min-width: 720px) {
   .p-hero__logo {
     font-size: 80px;
   }
 }
+
 .p-hero__catch {
   font-size: 16px;
 }
+
 @media screen and (min-width: 720px) {
   .p-hero__catch {
     font-size: 36px;
@@ -712,6 +743,7 @@ body {
   text-align: center;
   padding-bottom: 10px;
 }
+
 .p-problem__title {
   padding: 10px 0;
 }
@@ -720,6 +752,7 @@ body {
   text-align: center;
   padding-bottom: 10px;
 }
+
 .p-agitation__title {
   padding: 10px 0;
 }
@@ -727,12 +760,15 @@ body {
 .p-solution {
   text-align: center;
 }
+
 .p-solution__title {
   padding: 10px 0;
 }
+
 .p-solution__conatiner {
   overflow: hidden;
 }
+
 .p-solution-stepbox {
   font-weight: bold;
   padding: 10px;
@@ -740,6 +776,7 @@ body {
   width: 80%;
   border: 1px solid #ccc;
 }
+
 @media screen and (min-width: 720px) {
   .p-solution-stepbox {
     width: 50%;
@@ -747,9 +784,11 @@ body {
     padding: 20px;
   }
 }
+
 .p-solution-stepbox__step {
   color: #FF6347;
 }
+
 .p-solution-stepbox__icon {
   padding: 10px 0;
   color: #555;
@@ -760,9 +799,11 @@ body {
   height: 200px;
   padding: 10px 0;
 }
+
 .p-action__title {
   padding-bottom: 30px;
 }
+
 .p-action__button {
   margin: 0 auto;
   padding: 5px 25px;
@@ -773,6 +814,7 @@ body {
 .p-form__caution {
   padding-bottom: 10px;
 }
+
 .p-form__drop-area {
   position: relative;
   margin: 0 auto;
@@ -780,6 +822,7 @@ body {
   width: 100px;
   margin-bottom: 10px;
 }
+
 .p-form__hidden-input {
   position: absolute;
   width: 100px;
@@ -787,59 +830,75 @@ body {
   opacity: 0;
   cursor: pointer;
 }
+
 .p-form__input-text {
   width: 100%;
   margin-bottom: 10px;
 }
+
 .p-form__required {
   color: #ff3b30;
 }
+
 .p-form__limit {
   color: #797979;
 }
+
 .p-form__textarea {
   min-width: 100%;
   margin-bottom: 10px;
   border: 1px #ccc solid;
   padding: 5px 10px;
 }
+
 .p-form__textarea:hover {
   border-color: #555;
 }
+
 .p-form__textarea:focus {
   border-color: #4baae0;
 }
+
 .p-form__list:not(:last-child) {
   margin-bottom: 10px;
 }
+
 .p-form__item {
   display: flex;
   align-items: center;
 }
+
 .p-form__item:not(:last-child) {
   margin-bottom: 10px;
 }
+
 .p-form__box {
   margin-right: 5px;
 }
+
 .p-form__link {
   color: #0081c2;
 }
+
 .p-form__link-side {
   color: #0081c2;
 }
+
 .p-form__link-side:not(:last-child) {
   margin-right: 10px;
 }
+
 .p-form__delete {
   padding: 10px 0;
   color: #f3374d;
 }
+
 .p-form__text-count {
   display: inline;
   float: right;
   text-align: right;
 }
+
 .p-form__button {
   margin: 20px auto;
   padding: 5px 30px;
@@ -849,6 +908,7 @@ body {
 .p-verify {
   text-align: center;
 }
+
 .p-verify__resend {
   color: #0081c2;
 }
@@ -862,6 +922,7 @@ body {
   color: #155724;
   background-color: #d4edda;
 }
+
 .p-alert-flash--success {
   position: fixed;
   top: 0;
@@ -869,10 +930,11 @@ body {
   width: 100vw;
   text-align: center;
   background-color: #0095fb;
-  opacity: 0.6;
+  opacity: .6;
   font-weight: bold;
   color: #fff;
 }
+
 .p-alert-flash--err {
   position: fixed;
   top: 0;
@@ -880,10 +942,11 @@ body {
   width: 100vw;
   text-align: center;
   background: #f3374d;
-  opacity: 0.6;
+  opacity: .6;
   font-weight: bold;
   color: #fff;
 }
+
 .p-alert-err {
   color: #ff3b30;
 }
@@ -893,16 +956,19 @@ body {
   height: 100px;
   border: solid 3px skyblue;
 }
+
 .p-icon-profile {
   margin: 10px;
   width: 70px;
   height: 70px;
 }
+
 .p-icon-detail {
   margin: 10px;
   width: 40px;
   height: 40px;
 }
+
 .p-icon-name {
   font-weight: bold;
 }
@@ -910,11 +976,13 @@ body {
 .p-profile__link {
   color: #0081c2;
 }
+
 .p-profile__name {
   padding: 10px;
   font-weight: bold;
   color: #2a2a2a;
 }
+
 .p-profile__text {
   padding: 10px;
   font-weight: bold;
@@ -926,37 +994,46 @@ body {
   display: flex;
   align-items: center;
 }
+
 .p-manage-step__item-name {
   font-weight: bold;
   color: #fff;
   margin-right: 10px;
 }
+
 .p-manage-step__link {
   color: #fff;
 }
+
 .p-manage-step__link:hover {
   color: #00AC98;
 }
+
 .p-manage-step__title {
   text-align: center;
   padding: 10px 0;
 }
+
 .p-manage-step__content {
   padding: 10px 0;
   width: 80%;
   margin: 0 auto;
 }
+
 .p-manage__show-button {
   margin: 20px auto;
   padding: 5px 30px;
   background: #f3374d;
 }
+
 .p-manage-children {
   padding: 10px;
 }
+
 .p-manage-children__label {
   padding: 10px 0;
 }
+
 .p-manage-children__button {
   padding: 5px 25px;
   background: #4fc3f7;
@@ -966,27 +1043,34 @@ body {
 .p-step {
   padding: 20px 0;
 }
+
 .p-step__list {
   display: block;
   padding: 10px;
   border-bottom: 1px solid #f0f0f0;
 }
+
 .p-step__list:first-child {
   border-top: 1px solid #f0f0f0;
 }
+
 .p-step__title {
   color: #FF6347;
   padding-bottom: 10px;
 }
+
 .p-step__sub-title {
   padding-bottom: 10px;
 }
+
 .p-step__info {
   font-weight: bold;
 }
+
 .p-step__info:not(:last-child) {
   margin-bottom: 10px;
 }
+
 .p-step__update {
   padding-right: 10px;
   text-align: right;
@@ -996,6 +1080,7 @@ body {
   height: 5px;
   background-color: rgba(212, 224, 232, 0.5);
 }
+
 .p-progress__bar {
   height: 100%;
   background-color: #5dd9ee;
@@ -1005,16 +1090,20 @@ body {
   margin: 0 auto;
   width: 80%;
 }
+
 .p-detail__username {
   display: flex;
   align-items: center;
 }
+
 .p-detail__content {
   padding: 10px 0;
 }
+
 .p-detail__info {
   padding-bottom: 10px;
 }
+
 .p-detail__challenge-button {
   margin: 20px auto;
   border-radius: 50%;
@@ -1022,6 +1111,7 @@ body {
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
   background-color: #eb6100;
 }
+
 .p-detail__clear-button {
   margin: 20px auto;
   border-radius: 50%;
@@ -1029,6 +1119,7 @@ body {
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
   background-color: #d20010;
 }
+
 .p-detail__cancel-button {
   margin: 20px auto;
   border-radius: 50%;
@@ -1040,6 +1131,7 @@ body {
 .p-pagination {
   padding: 20px 0;
 }
+
 .p-pagination__list {
   display: flex;
   align-items: center;
@@ -1048,6 +1140,7 @@ body {
   margin: 0 auto;
   font-weight: bold;
 }
+
 .p-pagination__page-item {
   display: flex;
   align-items: center;
@@ -1062,13 +1155,15 @@ body {
   z-index: 4;
   opacity: 0;
   visibility: hidden;
-  transition: 0.6s;
+  transition: .6s;
   text-align: center;
 }
+
 .p-popup.is-show {
   opacity: 1;
   visibility: visible;
 }
+
 .p-popup__inner {
   position: absolute;
   left: 50%;
@@ -1080,6 +1175,7 @@ body {
   background-color: #fff;
   z-index: 4;
 }
+
 .p-popup__close {
   position: absolute;
   right: 0;
@@ -1090,10 +1186,12 @@ body {
   text-align: center;
   cursor: pointer;
 }
+
 .p-popup__close i {
   font-size: 20px;
   color: #333;
 }
+
 .p-popup__twitter-button {
   display: inline-block;
   padding: 5px 35px;
@@ -1104,14 +1202,16 @@ body {
   position: relative;
   text-decoration: none;
 }
+
 .p-popup__twitter-button::after {
   position: absolute;
-  content: "\F099";
-  font-family: "Font Awesome 5 Brands";
+  content: '\F099';
+  font-family: 'Font Awesome 5 Brands';
   top: 50%;
   left: 10px;
   transform: translateY(-50%);
 }
+
 .p-popup__start-button {
   font-size: 12px;
   border-radius: 50%;
@@ -1121,6 +1221,7 @@ body {
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
   background-color: #eb6100;
 }
+
 .p-popup__black-background {
   position: absolute;
   left: 0;

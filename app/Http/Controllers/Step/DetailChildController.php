@@ -25,7 +25,18 @@ class DetailChildController extends Controller
         if(empty($step) || empty($step_child)){
             return back()->withInput()->with('flash_message_err', 'パラメータが不正です');
         }
+
         $uc = UserChallenge::where('step_id', $step_id)->where('challenger_id', Auth::id())->first();
+
+        //ユーザーがステップにチャレンジしているか
+        if(empty($uc)){
+            return back()->withInput()->with('flash_message_err', 'まずはSTEPのスタートボタンを押してください');
+        }
+
+
+        if($step_child->id != $step->step_children()->first()->id && empty($uc->step_child_clears()->where('id', '<', $step_child_id)->first())){
+            return back()->withInput()->with('flash_message_err', 'STEPは順番に沿って進めてください'); 
+        }
         $step_clear = $uc ? $uc->step_child_clears()->where('step_child_id', $step_child_id)->first() : null;
         return view('step.detail_child', compact('step_child', 'uc', 'step_clear'));
     }
