@@ -149,6 +149,7 @@ return [
     'attributes' => [
         'title' => 'タイトル',
         'profile' => '自己紹介文',
+        'clear_time' => '達成時間',
         'tag_name1' => 'タグ名1',
         'tag_name2' => 'タグ名2',
         'tag_name3' => 'タグ名3',
