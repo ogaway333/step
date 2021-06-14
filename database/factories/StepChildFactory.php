@@ -8,6 +8,7 @@ use Faker\Generator as Faker;
 $factory->define(StepChild::class, function (Faker $faker) {
     return [
         'title' => $faker->realText($maxNbChars = 30),
+        'clear_time' => $faker->randomDigitNotNull,
         'content' => $faker->realText($maxNbChars = 500),
         'step_id' => $faker->numberBetween($min = 1, $max = 100),
     ];

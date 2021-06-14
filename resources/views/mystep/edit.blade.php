@@ -28,14 +28,6 @@
 
     @endif
 
-    <label for="clear_time">目安達成時間<span class="p-form__required">[必須]</span><span class="p-form__limit">（最大10文字まで）</span></label>
-    @error('clear_time')
-        <div class="p-alert-err" role="alert">
-            <strong>{{ $message }}</strong>
-        </div>
-    @enderror
-    <input id="clear_time" type="name" class="p-form__input-text c-input-text @error('clear_time') is-invalid @enderror" name="clear_time" value="{{ $step->clear_time }}" required autocomplete="name" placeholder="400時間">
-
     <label for="tag_name1">タグ名1<span class="p-form__limit">（最大10文字まで）</span></label>
     @error('tag_name1')
         <div class="p-alert-err" role="alert">
@@ -73,7 +65,9 @@
 </form>
 <form method="post" action="{{route('mystep.delete', ['step_id' => $step->id])}}" class="p-form c-container-form">
     @csrf
-    <input id="js-confim-delete" type="submit" class="p-form__delete" value="STEPを削除する">
+    <div class="p-form__wrap">
+        <input id="js-confim-delete" type="submit" class="p-form__button--option c-button--option" value="STEPを削除する">
+    </div>
 </form>
 
 @endsection

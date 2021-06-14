@@ -1,31 +1,45 @@
-.p-hero{
-    //アスペクト比4:3の要素の横幅に対して高さが75%
-    max-height: 768px;
-    height: calc(100vw * 0.75);
+.p-hero {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url(../images/hero.png);
-    background-size: cover;
-    background-position: 50% 0;
 
-    &__container{
-      color: #fff;
-      text-align: center;
+    &__img {
+        //アスペクト比4:3の要素の横幅に対して高さが75%
+        min-height: 240px;
+        max-height: 810px;
+        height: calc(100vw * 0.75);
+        width: 100%;
     }
 
-    &__logo{
-      font-size: 32px;
-      @include mq() {
-        font-size: 80px;
-      }
+    &__wrap {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+        color: #fff;
+        text-align: center;
     }
 
-    &__catch{
-      font-size: 16px;
-      @include mq() {
-        font-size: 36px;
-      }
+    &__logo {
+        font-size: 40px;
+        @include mq() {
+            font-size: 80px;
+        }
+        @include mq(lg) {
+            font-size: 120px;
+        }
     }
-    
+
+    &__catch {
+        font-size: 16px;
+        @include mq() {
+            font-size: 32px;
+        }
+        @include mq(lg) {
+            font-size: 48px;
+        }
+    }
 }

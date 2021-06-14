@@ -21,7 +21,6 @@ class Step extends Model
     protected $fillable = [
         'title',
         'category_id',
-        'clear_time',
         'tag_name1',
         'tag_name2',
         'tag_name3',

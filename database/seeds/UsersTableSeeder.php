@@ -14,9 +14,9 @@ class UsersTableSeeder extends Seeder
         App\User::create([
             'name' => 'step',
             'profile' => 'よろしくお願いします。',
-            'email' => 'step@info.com',
+            'email' => '1020test@test.com',
             'email_verified_at' => now(),
-            'password' => Hash::make('my_secure_password'), // my_secure_passwordでログインできる
+            'password' => Hash::make('k9TUinAs'), // k9TUinAsでログインできる
             'remember_token' => str_random(10),
         ]);
 

@@ -1967,8 +1967,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['steps']
+  props: ["steps"]
 });
 
 /***/ }),
@@ -2456,40 +2472,60 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "section",
-    { staticClass: "p-step" },
-    _vm._l(_vm.steps.data, function(step) {
-      return _c(
-        "a",
-        { key: step.id, staticClass: "p-step__list", attrs: { href: step.id } },
-        [
-          _c("h2", { staticClass: "p-step__title" }, [
-            _vm._v(_vm._s(step.title))
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "p-step__info" }, [
-            _vm._v(_vm._s(step.created_at))
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "p-step__info" }, [
-            _vm._v("カテゴリー：" + _vm._s(step.category.name))
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "p-step__info" }, [
-            _vm._v("目安達成時間：" + _vm._s(step.clear_time))
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "p-step__info" }, [
-            _vm._v(
-              "総合チャレンジ回数：" + _vm._s(step.challenger_count) + "回"
-            )
+  return _c("section", { staticClass: "p-step" }, [
+    _c(
+      "ul",
+      { staticClass: "p-step__card-group" },
+      _vm._l(_vm.steps.data, function(step) {
+        return _c("li", { key: step.id, staticClass: "p-step__card" }, [
+          _c("a", { staticClass: "p-step__link", attrs: { href: step.id } }, [
+            _c("h2", { staticClass: "p-step__title" }, [
+              _vm._v(
+                "\n                    " +
+                  _vm._s(step.title) +
+                  "\n                "
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "p-step__info-container" }, [
+              _c("p", { staticClass: "p-step__info" }, [
+                _vm._v(
+                  "\n                        投稿時間：" +
+                    _vm._s(step.created_at) +
+                    "\n                    "
+                )
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "p-step__info" }, [
+                _vm._v(
+                  "\n                        カテゴリー：" +
+                    _vm._s(step.category.name) +
+                    "\n                    "
+                )
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "p-step__info" }, [
+                _vm._v(
+                  "\n                        目安達成時間：" +
+                    _vm._s(step.all_clear_time) +
+                    "時間\n                    "
+                )
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "p-step__info" }, [
+                _vm._v(
+                  "\n                        総合チャレンジ回数：" +
+                    _vm._s(step.challenger_count) +
+                    "回\n                    "
+                )
+              ])
+            ])
           ])
-        ]
-      )
-    }),
-    0
-  )
+        ])
+      }),
+      0
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -14655,33 +14691,33 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('list-component', __webpack_require__(/*! ./components/ListComponent.vue */ "./resources/js/components/ListComponent.vue")["default"]);
+Vue.component("list-component", __webpack_require__(/*! ./components/ListComponent.vue */ "./resources/js/components/ListComponent.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function () {
   //STEP一覧ページのリストのインスタンス生成
   if (document.getElementById("app")) {
     var app = new Vue({
-      el: '#app'
+      el: "#app"
     });
   } //文字数カウント
 
 
-  if (document.getElementById('js-textArea')) {
+  if (document.getElementById("js-textArea")) {
     var textArea = document.getElementById("js-textArea");
     var length = textArea.value.length;
 
-    if (document.getElementById('js-textCount')) {
-      var textCount = document.getElementById('js-textCount');
+    if (document.getElementById("js-textCount")) {
+      var textCount = document.getElementById("js-textCount");
       textCount.innerHTML = length;
 
       textArea.onkeyup = function () {
-        if (document.getElementById('js-textMax')) {
-          var textMax = document.getElementById('js-textMax');
+        if (document.getElementById("js-textMax")) {
+          var textMax = document.getElementById("js-textMax");
           var Max = Number(textMax.textContent);
           var _length = textArea.value.length;
           textCount.innerHTML = _length;
@@ -14698,54 +14734,66 @@ document.addEventListener('DOMContentLoaded', function () {
   } //ファイル選択した画像を表示する
 
 
-  if (document.getElementById('file-icon')) {
-    var fileIcon = document.getElementById('file-icon');
-    fileIcon.addEventListener('change', function (e) {
+  if (document.getElementById("file-icon")) {
+    var fileIcon = document.getElementById("file-icon");
+    fileIcon.addEventListener("change", function (e) {
       // 1枚だけ表示する
       var file = e.target.files[0]; // ファイルのブラウザ上でのURLを取得する
 
       var blobUrl = window.URL.createObjectURL(file); // img要素に表示
 
-      var img = document.getElementById('js-preview');
+      var img = document.getElementById("js-preview");
       img.src = blobUrl;
     }, false);
   } //フラッシュメッセージのフェードアウト
 
 
-  if (document.getElementById('js-flash')) {
-    var flash = document.getElementById('js-flash');
+  if (document.getElementById("js-flash")) {
+    var flash = document.getElementById("js-flash");
     setTimeout(function () {
       flash.style.display = "none";
     }, 3000);
   } //STEPの削除確認
 
 
-  if (document.getElementById('js-confim-delete')) {
+  if (document.getElementById("js-confim-delete")) {
     document.getElementById("js-confim-delete").onclick = function () {
-      var checkDeleteFlg = window.confirm('削除してもよろしいですか？');
+      var checkDeleteFlg = window.confirm("削除してもよろしいですか？");
 
       if (checkDeleteFlg) {
         return true;
       } else {
-        window.alert('キャンセルされました');
+        window.alert("キャンセルされました");
         return false;
       }
+    };
+  } //STEPの登録で子STEPのフィールドを追加
+
+
+  if (document.getElementById("js-addStep")) {
+    var count = 2;
+    var step = document.getElementById("js-addStep");
+
+    step.onclick = function () {
+      var field = "\n                <label for=\"title_children\">\u5B50STEP".concat(count, "\u306E\u30BF\u30A4\u30C8\u30EB<span class=\"p-form__required\">[\u5FC5\u9808]</span><span class=\"p-form__limit\">\uFF08\u6700\u5927100\u6587\u5B57\u307E\u3067\uFF09</span></label>\n                <input id=\"title_children\" type=\"name\" class=\"p-form__input-text c-input-text\" name=\"title_children[]\" required autocomplete=\"name\">\n                <label for=\"clear_times\">\u5B50STEP").concat(count, "\u306E\u9054\u6210\u6642\u9593<span class=\"p-form__required\">[\u5FC5\u9808]</span><span class=\"p-form__limit\">\uFF08\u6700\u59273\u6841\u307E\u3067\uFF09</span></label>\n                <div class=\"p-form__wrap\">\n                    <input id=\"clear_times\" type=\"number\" class=\"p-form__input-number c-input-text\" name=\"clear_times[]\" required autocomplete=\"name\">\u6642\u9593\n                </div>\n                <label for=\"content_children\">\u5B50STEP").concat(count, "\u306E\u5185\u5BB9<span class=\"p-form__required\">[\u5FC5\u9808]</span><span class=\"p-form__limit\">\uFF08\u6700\u59275,000\u6587\u5B57\u307E\u3067\uFF09</span></label>\n                <textarea name=\"content_children[]\" class=\"p-form__textarea\" required autocomplete=\"name\" cols=\"30\" rows=\"10\"></textarea>\n                ");
+      step.insertAdjacentHTML("beforebegin", field);
+      count++;
     };
   } //STEPのシェア画面のポップアップ
 
 
-  if (document.getElementById('js-popup')) {
+  if (document.getElementById("js-popup")) {
     //表示の切替
     var closePopUp = function closePopUp(elem) {
-      elem.addEventListener('click', function () {
-        popup.classList.toggle('is-show');
+      elem.addEventListener("click", function () {
+        popup.classList.toggle("is-show");
       });
     };
 
-    var popup = document.getElementById('js-popup');
-    var blackBg = document.getElementById('js-black-bg');
-    var closeBtn = document.getElementById('js-close-popup');
-    var showBtn = document.getElementById('js-show-popup');
+    var popup = document.getElementById("js-popup");
+    var blackBg = document.getElementById("js-black-bg");
+    var closeBtn = document.getElementById("js-close-popup");
+    var showBtn = document.getElementById("js-show-popup");
     closePopUp(blackBg);
     closePopUp(closeBtn);
     closePopUp(showBtn);

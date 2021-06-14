@@ -1,4 +1,5 @@
-.l-main{
-    min-height: 100vh;
+.l-main {
+    //120pxはfooterとheaderの高さの合計
+    min-height: calc(100vh - 120px);
     margin-top: 80px;
 }

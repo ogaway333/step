@@ -23,7 +23,7 @@ class ProfileController extends Controller
             return back()->withInput()->with('flash_message_err', 'パラメータが不正です');
         }
 
-        $steps = $user ? $user->steps()->where('user_id', $user->id)->get() : null;
+        $steps = $user ? $user->steps()->where('user_id', $user->id)->where('show_flg', true)->paginate(6) : null;
 
         return view('user.profile', compact('user','steps'));
     }

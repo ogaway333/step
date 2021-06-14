@@ -17,6 +17,7 @@ class CreateStepChildrenTable extends Migration
         Schema::create('step_children', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
+            $table->integer('clear_time');
             $table->text('content');
             $table->unsignedBigInteger('step_id');
             $table->foreign('step_id')->references('id')->on('steps');

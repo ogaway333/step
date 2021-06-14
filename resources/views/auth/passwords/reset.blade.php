@@ -1,7 +1,7 @@
 @extends('layouts.app')
-
+@section('title', 'パスワードリセットページ')
 @section('content')
-<h2 class="c-title">パスワードの変更</h2>
+<h2 class="c-title">パスワードのリセット</h2>
 <form class="p-form c-container-form" method="POST" action="{{ route('password.update') }}">
     @csrf
 

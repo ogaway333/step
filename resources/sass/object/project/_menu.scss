@@ -3,17 +3,17 @@
         display: flex;
         align-items: center;
         padding: 10px;
-        background-color: #FF6347;
+        border: 1px #555 solid;
     }
 
     &__angle{
         display: block;
-        color: #fff;
+        color: #555;
         margin-left: auto;
     }
 
     &__title{
-        color: #fff;
+        color: #555;
     }
 
     &__content{

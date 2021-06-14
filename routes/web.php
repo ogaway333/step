@@ -13,11 +13,6 @@
 
 Auth::routes(['verify' => true]);
 
-//top画面
-Route::get('/', function () {
-    return view('top');
-})->name('top');
-
 //STEP一覧
 Route::get('/step/list', 'Step\ListController@index')->name('step.list');
 
@@ -30,11 +25,11 @@ Route::get('/step/{step_id}/child/{step_child_id}', 'Step\DetailChildController@
 //ユーザー情報
 Route::get('/user/profile/{user_id}', 'User\ProfileController@index')->name('user.profile');
 
+//home画面
+Route::get('/', 'HomeController@index')->name('home');
+
 Route::middleware('verified')->group(function() {
     //メール認証が完了した場合のみ、実行できるRoute
-
-    //home画面
-    Route::get('/home', 'HomeController@index')->name('home');
 
     //ユーザー情報編集画面
     Route::get('/user/edit', 'User\EditController@index')->name('user.edit');
@@ -91,7 +86,4 @@ Route::middleware('verified')->group(function() {
 
     //子STEPクリアを削除
     Route::post('/step/{step_id}/child/{step_child_id}/delete', 'Step\DetailChildController@delete')->name('step.cancel');
-
-
-
 });

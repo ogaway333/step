@@ -10,13 +10,10 @@
         @empty($step_clear)
         <form method="POST" action="{{route('step.clear', ['step_id' => $step_child->step_id, 'step_child_id' => $step_child->id])}}">
             @csrf
-            <button class="p-detail__clear-button c-button" type="submit">CLEAR</button>
+            <button class="p-detail__clear-button c-button--step" type="submit">CLEAR</button>
         </form> 
         @else
-        <form method="POST" action="{{route('step.cancel', ['step_id' => $step_child->step_id, 'step_child_id' => $step_child->id])}}">
-            @csrf
-            <button class="p-detail__cancel-button c-button" type="submit">CANCEL</button>
-        </form> 
+        <i class="p-detail__clear-mark fas fa-4x fa-chess-queen"></i>
         @endempty        
     @endempty
 

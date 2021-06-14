@@ -11,6 +11,7 @@ class StepChild extends Model
     use SoftDeletes;
     protected $fillable = [
         'title',
+        'clear_time',
         'content'
     ];
     //belongsTo設定

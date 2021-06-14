@@ -1,17 +1,23 @@
-.p-form{
-    &__caution{
+.p-form {
+    &__caution {
         padding-bottom: 10px;
     }
 
-    &__drop-area{
+    &__wrap {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    &__drop-area {
         position: relative;
-        margin:  0 auto;
+        margin: 0 auto;
         height: 100px;
         width: 100px;
         margin-bottom: 10px;
     }
 
-    &__hidden-input{
+    &__hidden-input {
         position: absolute;
         width: 100px;
         height: 100px;
@@ -19,84 +25,91 @@
         cursor: pointer;
     }
 
-    &__input-text{
+    &__input-text {
         width: 100%;
         margin-bottom: 10px;
     }
 
-    &__required{
+    &__input-number {
+        width: 15vw;
+        margin-right: 10px;
+    }
+
+    &__required {
         color: #ff3b30;
     }
 
-    &__limit{
+    &__limit {
         color: #797979;
     }
 
-    &__textarea{
+    &__textarea {
         min-width: 100%;
         max-width: 100%;
         margin-bottom: 10px;
         border: 1px #ccc solid;
         padding: 5px 10px;
 
-        &:hover{
+        &:hover {
             border-color: #555;
         }
-    
-        &:focus{
+
+        &:focus {
             border-color: #4baae0;
         }
-        &.is-invalid{
+        &.is-invalid {
             background-color: #ffd9e1;
         }
     }
 
-    &__list{
-        &:not(:last-child){
+    &__list {
+        &:not(:last-child) {
             margin-bottom: 10px;
         }
     }
 
-    &__item{
+    &__item {
         display: flex;
         align-items: center;
-        &:not(:last-child){
+        &:not(:last-child) {
             margin-bottom: 10px;
         }
     }
 
-    &__box{
+    &__box {
         margin-right: 5px;
     }
 
-    &__link{
+    &__link {
         color: #0081c2;
-        &-side{
+        &-side {
             color: #0081c2;
-            &:not(:last-child){
+            &:not(:last-child) {
                 margin-right: 10px;
             }
-            
         }
     }
 
-    &__delete{
+    &__delete {
         padding: 10px 0;
         color: #f3374d;
     }
 
-    &__text-count{
+    &__text-count {
         display: inline;
         float: right;
         text-align: right;
     }
 
-
-
-    &__button{
+    &__button {
         margin: 20px auto;
         padding: 5px 30px;
         background-color: #4baae0;
     }
-}
 
+    &__button--option {
+        font-size: 10px;
+        padding: 5px 10px;
+        background-color: #d20010;
+    }
+}

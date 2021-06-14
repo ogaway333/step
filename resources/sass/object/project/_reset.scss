@@ -1,13 +1,12 @@
-.p-reset{
-
-    &__input{
+.p-reset {
+    &__input {
         width: 100%;
         margin-bottom: 10px;
     }
-    &__button{
+    &__button {
         margin: 20px auto;
         width: 100px;
         height: 30px;
-        background-color: #4baae0;    
+        background-color: #4baae0;
     }
 }

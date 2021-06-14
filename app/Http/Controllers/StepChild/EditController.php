@@ -47,6 +47,7 @@ class EditController extends Controller
 
         $request->validate([
             'title'=>['required','string','max:100'],
+            'clear_time'=>['required','integer','digits_between:1,3'],
             'content'=>['required','string','max:5000']
         ]);
         

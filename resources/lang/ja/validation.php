@@ -152,8 +152,10 @@ return [
         'tag_name1' => 'タグ名1',
         'tag_name2' => 'タグ名2',
         'tag_name3' => 'タグ名3',
-        'clear_time' => '達成時間',
         'category_id' => 'カテゴリー',
         'content' => '内容',
+        'title_children.*' => 'タイトル',
+        'clear_times.*' => '達成時間',
+        'content_children.*' => '内容',
     ],
 ];

@@ -1,25 +1,24 @@
-.c-input{
-    &-text{
+.c-input {
+    &-text {
         display: block;
         box-sizing: border-box;
         border: 1px solid #ccc;
         border-radius: 3px;
         padding: 5px 10px;
-	line-height: normal;
-        &:hover{
+        line-height: normal;
+        &:hover {
             border-color: #555;
         }
-    
-        &:focus{
+
+        &:focus {
             border-color: #4baae0;
         }
 
-        &.is-invalid{
+        &.is-invalid {
             background-color: #ffd9e1;
         }
-        &::placeholder{
-	    line-height: normal;
+        &::placeholder {
+            line-height: normal;
         }
-    
-    }   
+    }
 }

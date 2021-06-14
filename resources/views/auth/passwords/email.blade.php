@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', 'パスワード再発行ページ')
 @section('content')
 <h2 class="c-title">パスワード再発行用ＵＲＬの送信</h2>
     @if (session('status'))

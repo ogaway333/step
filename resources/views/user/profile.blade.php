@@ -12,14 +12,21 @@
 </section>
 <h2 class="c-title">STEPの登録一覧</h2>
 <section class="p-step">
-    @foreach ($steps as $key => $step)
-    <a class="p-step__list" href="{{route('step.detail', ['step_id' => $step->id])}}">
-        <h2 class="p-step__title">{{$step->title}}</h2>
-        <p class="p-step__info">{{$step->created_at->format('Y-m-d')}}</p>
-        <p class="p-step__info">カテゴリー：{{$step->category->name}}</p>
-        <p class="p-step__info">目安達成時間：{{$step->clear_time}}</p>
-        <p class="p-step__info">総合チャレンジ回数：{{$step->challenger_count}}人</p>
-    </a>
-    @endforeach
+    <ul class="p-step__card-group">
+        @foreach ($steps as $key => $step)
+        <li class="p-step__card">
+            <a class="p-step__link" href="{{route('step.detail', ['step_id' => $step->id])}}">
+                <h2 class="p-step__title">{{$step->title}}</h2>
+                <div class="p-step__info-container">
+                    <p class="p-step__info">投稿時間：{{ $step->created_at }}</p>
+                    <p class="p-step__info">カテゴリー：{{ $step->category->name }}</p>
+                    <p class="p-step__info">目安達成時間：{{ $step->step_children()->sum('clear_time') }}時間</p>
+                    <p class="p-step__info">総合チャレンジ回数：{{ $step->challenger_count }}回</p>
+                </div>
+            </a>
+        </li>
+        @endforeach
+    </ul>
+    {{ $steps->links('vendor.pagination.default') }}
 </section>
 @endsection

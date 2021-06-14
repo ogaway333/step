@@ -14,6 +14,9 @@
 
 
     <title>{{ config('app.name') }} | @yield('title')</title>
+    <meta name="description" content="【STEP】は、ユーザーが過去に挑戦したことをステップ形式で投稿することで誰でも【無料】でステップに挑戦することができるロードマップ共有サービスです。">
+    <meta name="keywords" content="ロードマップ,アプリ,無料">
+
 
     <!-- Scripts -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -33,7 +36,7 @@
     <header class="l-header">
         <div class="p-header">
           <div class="p-header-top">
-            <a class="p-header-top__logo" href="{{ route('top') }}">
+            <a class="p-header-top__logo" href="{{ route('home') }}">
               STEP
             </a>
             @guest
@@ -43,7 +46,7 @@
             <a class="p-header-top__logout" href="{{ route('logout') }}"
             onclick="event.preventDefault();
                           document.getElementById('logout-form').submit();">
-             ログアウト
+                          ログアウト
             </a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
@@ -52,7 +55,10 @@
 
           </div>
           <div class="p-header-bottom">
+            @guest
+            @else
             <a class="p-header-bottom__link" href="{{ route('home') }}">マイページ</a>
+            @endguest
             <a class="p-header-bottom__link" href="{{ route('step.list') }}">ステップ一覧</a>
             <a class="p-header-bottom__link" href="{{ route('mystep.register') }}">ステップ投稿</a>
           </div>

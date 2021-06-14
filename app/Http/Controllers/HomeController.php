@@ -16,11 +16,11 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
+/*    public function __construct()
     {
         $this->middleware('auth');
     }
-
+*/
     /**
      * Show the application dashboard.
      *
@@ -33,10 +33,19 @@ class HomeController extends Controller
         $user = new User;
         $auth = Auth::user();
 
-        $steps = Step::where('user_id', $auth->id)->paginate(5);
+        //ログイン状態でなければtopページ
+        if(empty($auth)){
+            return view('top');
+        }
+
+        //ログイン状態だがメール未認証の場合はメール認証ページ
+        if(!empty($auth) && empty(optional($auth)->email_verified_at)){
+            return view('auth.verify');
+        }
+
+        $steps = Step::where('user_id', $auth->id)->orderBy('created_at', 'desc')->paginate(6);
 
         $user_challenges = UserChallenge::where('challenger_id', Auth::id())->get();
-
 
         return view('home', compact('auth', 'steps', 'user_challenges'));
     }

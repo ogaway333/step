@@ -40,7 +40,7 @@ class EditController extends Controller
                 'profile' => $request->profile,
                 'email' => $request->email
             ]);
-            return redirect('/home', 301)->with('flash_message', 'ユーザー情報が更新されました');;            
+            return redirect('/', 301)->with('flash_message', 'ユーザー情報が更新されました');;            
         }
         $user->where('id', $user_id)->update([
             'icon' => $fileName,
@@ -48,7 +48,7 @@ class EditController extends Controller
             'profile' => $request->profile,
             'email' => $request->email
         ]);
-        return redirect('/home', 301)->with('flash_message', 'ユーザー情報が更新されました');
+        return redirect('/', 301)->with('flash_message', 'ユーザー情報が更新されました');
             
     }
 }

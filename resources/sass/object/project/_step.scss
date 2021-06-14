@@ -1,33 +1,102 @@
-.p-step{
-    padding: 20px 0;
-    
-    &__list{
+.p-step {
+    &__list {
+        position: relative;
         display: block;
         padding: 10px;
-        &:first-child{
+        &:first-child {
             border-top: 1px solid #f0f0f0;
         }
         border-bottom: 1px solid #f0f0f0;
     }
 
-    &__title{
-        color: #FF6347;
-        padding-bottom: 10px;
+    &__card-group {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        width: 95%;
+        margin: 20px auto 0 auto;
     }
 
-    &__sub-title{
-        padding-bottom: 10px;
-    }
+    &__card {
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        min-height: 180px;
+        width: 100%;
+        position: relative;
+        margin-bottom: 20px;
 
-    &__info{
-        font-weight: bold;
-        &:not(:last-child){
-            margin-bottom: 10px;
+        @include mq() {
+            min-height: 280px;
+            width: calc(50% - 20px / 2);
+            margin: 0 20px 20px 0;
+            &:nth-child(2n) {
+                margin-right: 0;
+            }
+        }
+        @include mq(lg) {
+            width: calc(33.3333333% - 40px / 3);
+
+            &:nth-child(2n) {
+                margin-right: 20px;
+            }
+
+            &:nth-child(3n) {
+                margin-right: 0;
+            }
         }
     }
 
-    &__update{
-        padding-right: 10px;
-        text-align: right;
+    &__link {
+        position: absolute;
+        display: block;
+        padding: 10px;
+        height: 100%;
+        width: 100%;
+    }
+
+    &__clear {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        color: #28a0a0;
+    }
+
+    &__unclear {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        color: #ccc;
+    }
+
+    &__title {
+        font-size: 16px;
+        height: calc(2em * 2);
+        overflow: hidden;
+        color: #333;
+        text-overflow: ellipsis;
+        padding-bottom: 10px;
+        @include mq() {
+            font-size: 20px;
+        }
+    }
+
+    &__sub-title {
+        overflow: hidden;
+        width: 90%;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        padding-bottom: 10px;
+        font-weight: bold;
+    }
+
+    &__info-container {
+        position: absolute;
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+    }
+
+    &__info {
+        font-size: 12px;
+        font-weight: bold;
     }
 }

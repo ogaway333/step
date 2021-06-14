@@ -9,7 +9,6 @@ $factory->define(Step::class, function (Faker $faker) {
     return [
         'title' => $faker->realText($maxNbChars = 30),
         'category_id' => $faker->numberBetween($min = 1, $max = 7),
-        'clear_time' => '100時間',
         'tag_name1' => $faker->city,
         'tag_name2' => $faker->city,
         'tag_name3' => $faker->city,

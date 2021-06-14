@@ -18,7 +18,6 @@ class CreateStepsTable extends Migration
             $table->string('title');
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories');
-            $table->string('clear_time');
             $table->string('tag_name1');
             $table->string('tag_name2');
             $table->string('tag_name3');

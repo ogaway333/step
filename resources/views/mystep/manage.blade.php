@@ -27,12 +27,17 @@
         <button class="p-manage-children__button c-button" onclick="location.href='{{route('mystep_child.register', ['step_id' => $step->id])}}'">子ステップを投稿</button>
     </div>
     <div class="p-step">
-    @foreach ($step_children as $key => $step_child)
-        <a href="{{route('mystep_child.edit', ['step_id' => $step->id, 'step_child_id' => $step_child->id])}}" class="p-step__list">
-            <p class="p-step__sub-title">STEP{{$key + 1}}：{{$step_child->title}}</p>
-            <p class="p-step__update">{{$step_child->updated_at}}</p>
-        </a>
-    @endforeach
+        <ul class="p-step__list-group">
+            @foreach ($step_children as $key => $step_child)
+            <li class="p-step__list">
+                <a href="{{route('mystep_child.edit', ['step_id' => $step->id, 'step_child_id' => $step_child->id])}}">
+                    <p class="p-step__sub-title">STEP{{$key + 1}}：{{$step_child->title}}</p>
+                    <p class="p-step__info">達成時間：{{$step_child->clear_time}}時間</p>
+                    <p class="p-step__info">投稿時間：{{$step_child->updated_at}}</p>
+                </a>
+            </li>
+            @endforeach
+        </ul>
     </div>
 </section>
 

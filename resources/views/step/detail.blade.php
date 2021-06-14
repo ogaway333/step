@@ -10,20 +10,20 @@
         @csrf
         <div class="p-popup" id="js-popup">
             <div class="p-popup__inner">
-              <div class="p-popup__close" id="js-close-popup"><i class="fas fa-times"></i></div>
-              <h2 class="c-title">STEPをシェアしよう！</h2>
-              <p>チャレンジを始める前にツイッターでシェアしませんか？</p>
-              <a class="p-popup__twitter-button" href="https://twitter.com/share?url={{ route('step.detail', ['step_id' => $step->id]) }}/&text={{$step->title}}の挑戦が始まりました！" rel="nofollow" target="_blank">STEPをシェアする</a>
-              <button class="p-popup__start-button c-button" type="submit">START</button>
+                <div class="p-popup__close" id="js-close-popup"><i class="fas fa-times"></i></div>
+                <h2 class="c-title">STEPをシェアしよう！</h2>
+                <p>チャレンジを始める前にツイッターでシェアしませんか？</p>
+                <a class="p-popup__twitter-button" href="https://twitter.com/share?url={{ route('step.detail', ['step_id' => $step->id]) }}/&text={{$step->title}}の挑戦が始まりました！" rel="nofollow" target="_blank">STEPをシェアする</a>
+                <button class="p-popup__start-button c-button--step" type="submit">START</button>
             </div>
             <div class="p-popup__black-background" id="js-black-bg"></div>
         </div>
     </form>  
-    <button id="js-show-popup" class="p-detail__challenge-button c-button">START</button>
+    <button id="js-show-popup" class="p-detail__challenge-button c-button--step">START</button>
     @else
     <form method="POST" action="{{route('step.give_up', ['step_id' => $step->id])}}">
         @csrf
-        <button class="p-detail__cancel-button c-button" type="submit">CANCEL</button>
+        <button class="p-detail__cancel-button c-button--step" type="submit">CANCEL</button>
     </form>     
     @endempty
 
@@ -46,17 +46,44 @@
 
     <p class="p-detail__info">カテゴリー：{{$step->category->name}}</p>
     <p class="p-detail__info">キーワード：{{$step->tag_name1}} {{$step->tag_name2}} {{$step->tag_name3}}</p>
-    <p class="p-detail__info">目安達成時間：{{$step->clear_time}}</p>
+    <p class="p-detail__info">目安達成時間：{{$step->step_children()->sum('clear_time')}}時間</p>
 
     <p class="p-detail__content">{!! nl2br(e($step->content)) !!}</p>
 </section>
 <div class="p-step">
-    @foreach ($step_children as $key => $step_child)
-        <a href="{{route('step.detail_child', ['step_id' => $step->id, 'step_child_id' => $step_child->id])}}" class="p-step__list">
-            <p class="p-step__sub-title">STEP{{$key + 1}}：{{$step_child->title}}</p>
-            <p class="p-step__update">{{$step_child->updated_at}}</p>
-        </a>
-    @endforeach
+    <ul class="p-step__list-group">
+        @foreach ($step_children as $key => $step_child)
+        @empty ($uc)
+        <li class="p-step__list">
+            <a href="{{route('step.detail_child', ['step_id' => $step->id, 'step_child_id' => $step_child->id])}}">
+                <p class="p-step__sub-title">STEP{{$key + 1}}：{{$step_child->title}}</p>
+                <i class="p-step__unclear far fa-2x fa-check-circle"></i>
+                <p class="p-step__info">達成時間：{{$step_child->clear_time}}時間</p>
+                <p class="p-step__info">投稿時間：{{$step_child->updated_at}}</p>
+            </a>
+        </li>
+        
+        @elseif (!empty($step_child->step_child_clears()->where('challenge_id', $uc->id)->first()))
+        <li class="p-step__list">
+            <a href="{{route('step.detail_child', ['step_id' => $step->id, 'step_child_id' => $step_child->id])}}">
+                <p class="p-step__sub-title">STEP{{$key + 1}}：{{$step_child->title}}</p>
+                <i class="p-step__clear far fa-2x fa-check-circle"></i>
+                <p class="p-step__info">達成時間：{{$step_child->clear_time}}時間</p>
+                <p class="p-step__info">投稿時間：{{$step_child->updated_at}}</p>
+            </a>
+        </li>    
+        @else
+        <li class="p-step__list">
+            <a href="{{route('step.detail_child', ['step_id' => $step->id, 'step_child_id' => $step_child->id])}}">
+                <p class="p-step__sub-title">STEP{{$key + 1}}：{{$step_child->title}}</p>
+                <i class="p-step__unclear far fa-2x fa-check-circle"></i>
+                <p class="p-step__info">達成時間：{{$step_child->clear_time}}時間</p>
+                <p class="p-step__info">投稿時間：{{$step_child->updated_at}}</p>
+            </a>
+        </li>
+        @endempty       
+        @endforeach
+    </ul>
 </div>
 
 

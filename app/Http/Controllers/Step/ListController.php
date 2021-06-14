@@ -51,7 +51,13 @@ class ListController extends Controller
         }
         $result_count = $query->count();
         $query->with('category'); 
-        $steps = $query->paginate(5);
+
+        $steps = $query->paginate(6);
+
+        $steps->map(function ($step, $key) {
+                $step['all_clear_time'] = $step->step_children()->sum('clear_time');
+                return $step;
+        });
 
         return view('step.list', compact('steps', 'categories', 'order', 'category_id', 'q', 'result_count')); 
     }

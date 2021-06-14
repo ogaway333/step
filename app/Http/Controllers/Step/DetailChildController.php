@@ -33,8 +33,9 @@ class DetailChildController extends Controller
             return back()->withInput()->with('flash_message_err', 'まずはSTEPのスタートボタンを押してください');
         }
 
+        $step_child_prev = $step->step_children()->where('id', '<', $step_child_id)->orderBy('id', 'desc')->first();
 
-        if($step_child->id != $step->step_children()->first()->id && empty($uc->step_child_clears()->where('id', '<', $step_child_id)->first())){
+        if($step_child->id != $step->step_children()->first()->id && empty(optional($step_child_prev)->step_child_clears()->where('challenge_id', $uc->id)->where('step_child_id', $step_child_prev->id)->first())){
             return back()->withInput()->with('flash_message_err', 'STEPは順番に沿って進めてください'); 
         }
         $step_clear = $uc ? $uc->step_child_clears()->where('step_child_id', $step_child_id)->first() : null;
@@ -56,24 +57,6 @@ class DetailChildController extends Controller
         
 
         return redirect('/step/'.$step_id, 301)->with('flash_message', '子STEPをクリアしました！');
-
-    }
-
-    //子ステップの削除
-    public function delete($step_id, $step_child_id) {
-        // GETパラメータの確認 数字であるか
-        if(!ctype_digit($step_id) || !ctype_digit($step_child_id)){
-            return back()->withInput()->with('flash_message_err', 'パラメータが不正です');
-        }
-        $uc = UserChallenge::where('step_id', $step_id)->where('challenger_id', Auth::id())->first();
-
-        $step_clear = StepChildClear::where('challenge_id', $uc->id)->where('step_child_id', $step_child_id);
-
-        DB::transaction(function () use ($step_clear) {
-            $step_clear->delete();
-        });
-
-        return redirect('/step/'.$step_id, 301)->with('flash_message', 'STEPのクリアをキャンセルしました');
 
     }
 }

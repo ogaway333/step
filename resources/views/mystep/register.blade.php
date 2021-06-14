@@ -32,14 +32,6 @@
 
     @endif
 
-    <label for="clear_time">目安達成時間<span class="p-form__required">[必須]</span><span class="p-form__limit">（最大10文字まで）</span></label>
-    @error('clear_time')
-        <div class="p-alert-err" role="alert">
-            <strong>{{ $message }}</strong>
-        </div>
-    @enderror
-    <input id="clear_time" type="name" class="p-form__input-text c-input-text @error('clear_time') is-invalid @enderror" name="clear_time" value="{{ old('clear_time') }}" required autocomplete="name" placeholder="400時間">
-
     <label for="tag_name1">タグ名1<span class="p-form__limit">（最大10文字まで）</span></label>
     @error('tag_name1')
         <div class="p-alert-err" role="alert">
@@ -73,7 +65,52 @@
     <p class="p-form__text-count"><span id="js-textCount">0</span>／<span id="js-textMax">5000</span></p>
     <textarea name="content" id="js-textArea" class="p-form__textarea @error('content') is-invalid @enderror" required autocomplete="name" cols="30" rows="10">{{old('content')}}</textarea>
 
+    @if (empty(old('title_children')))
+    <label for="title_children">子STEP1のタイトル<span class="p-form__required">[必須]</span><span class="p-form__limit">（最大100文字まで）</span></label>
+    <input id="title_children" type="name" class="p-form__input-text c-input-text" name="title_children[]" required autocomplete="name" placeholder="動画を見る">
+
+    <label for="clear_times">子STEP1の達成時間<span class="p-form__required">[必須]</span><span class="p-form__limit">（最大3桁まで）</span></label>
+    <div class="p-form__wrap">
+        <input id="clear_times" type="number" class="p-form__input-number c-input-text" name="clear_times[]" required autocomplete="name">時間
+    </div>
+
+    <label for="content_children">子STEP1の内容<span class="p-form__required">[必須]</span><span class="p-form__limit">（最大5,000文字まで）</span></label>
+    <textarea name="content_children[]" class="p-form__textarea" required autocomplete="name" cols="30" rows="10"></textarea>
+
+    @else
+    @for ($i = 0; $i < count(old('title_children')); $i++)
+    <label for="title_children">子STEP{{$i+1}}のタイトル<span class="p-form__required">[必須]</span><span class="p-form__limit">（最大100文字まで）</span></label>
+    @error('title_children.'.$i)
+        <div class="p-alert-err" role="alert">
+            <strong>{{ $message }}</strong>
+        </div>
+    @enderror
+    <input id="title_children" type="name" class="p-form__input-text c-input-text @error('title_children.'.$i) is-invalid @enderror" name="title_children[]" value="{{ old('title_children.'.$i) }}" required autocomplete="name" placeholder="動画を見る">
+
+    <label for="clear_times">子STEP{{$i+1}}の達成時間<span class="p-form__required">[必須]</span><span class="p-form__limit">（最大3桁まで）</span></label>
+    @error('clear_times.'.$i)
+        <div class="p-alert-err" role="alert">
+            <strong>{{ $message }}</strong>
+        </div>
+    @enderror
+    <div class="p-form__wrap">
+        <input id="clear_times" type="number" class="p-form__input-number c-input-text @error('clear_times.'.$i) is-invalid @enderror" name="clear_times[]" value="{{ old('clear_times.'.$i) }}" required autocomplete="name">時間
+    </div>
+
+    <label for="content_children">子STEP{{$i+1}}の内容<span class="p-form__required">[必須]</span><span class="p-form__limit">（最大5,000文字まで）</span></label>
+    @error('content_children.'.$i)
+        <div class="p-alert-err" role="alert">
+            <strong>{{ $message }}</strong>
+        </div>
+    @enderror
+    <textarea name="content_children[]" class="p-form__textarea @error('content_children.'.$i) is-invalid @enderror" required autocomplete="name" cols="30" rows="10">{{old('content_children.'.$i)}}</textarea>    
+    @endfor        
+    @endif
+
+    <button class="p-form__button--option c-button--option" type="button" id="js-addStep">子STEP追加</button>
+
     <input class="p-form__button c-button" type="submit" value="登録する">
+
 </form>
 
 @endsection

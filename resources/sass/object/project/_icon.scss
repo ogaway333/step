@@ -1,21 +1,21 @@
-.p-icon{
-    &-form{
+.p-icon {
+    &-form {
         width: 100px;
         height: 100px;
-        border: solid 3px skyblue;     
+        border: solid 3px skyblue;
     }
-    &-profile{
+    &-profile {
         margin: 10px;
         width: 70px;
-        height: 70px;       
+        height: 70px;
     }
 
-    &-detail{
+    &-detail {
         margin: 10px;
         width: 40px;
-        height: 40px;     
+        height: 40px;
     }
-    &-name{
+    &-name {
         font-weight: bold;
-    }  
+    }
 }

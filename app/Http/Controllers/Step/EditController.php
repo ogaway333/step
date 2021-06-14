@@ -37,7 +37,6 @@ class EditController extends Controller
         $request->validate([
             'title'=>['required','string','max:100'],
             'category_id' =>['required','integer','exists:categories,id'],
-            'clear_time'=>['required','string','max:10'],
             'tag_name1'=>['nullable','string','max:10'],
             'tag_name2'=>['nullable','string','max:10'],
             'tag_name3'=>['nullable','string','max:10'],
@@ -69,7 +68,7 @@ class EditController extends Controller
 
 
         
-        return redirect('/home', 301)->with('flash_message', 'STEPが削除されました');
+        return redirect('/', 301)->with('flash_message', 'STEPが削除されました');
             
     }
 }
